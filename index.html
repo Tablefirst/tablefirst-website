@@ -425,6 +425,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
+
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+
+
       nav { padding: 16px 24px; }
       nav.scrolled { padding: 12px 24px; }
       .nav-links { gap: 20px; }
@@ -456,6 +461,52 @@
 
       footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
     }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      margin-left: 24px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--black);
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.99);
+      z-index: 199;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 44px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 32px;
+      font-weight: 200;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      text-decoration: none;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .mobile-menu a:hover { opacity: 1; }
+
   </style>
 </head>
 <body>
@@ -476,7 +527,18 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#concepts" onclick="closeMenu()">Concepts</a>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
@@ -677,7 +739,7 @@
         <div class="c-rows">
           <div class="c-row">
             <div class="c-lbl">Email</div>
-            <a href="mailto:info@tablefirst.co" class="c-val">info@tablefirst.co</a>
+            <a href="/cdn-cgi/l/email-protection#5c35323a331c283d3e30393a352e2f28723f33" class="c-val"><span class="__cf_email__" data-cfemail="157c7b737a556174777970737c6766613b767a">[email&#160;protected]</span></a>
           </div>
           <div class="c-row">
             <div class="c-lbl">Location</div>
@@ -734,7 +796,7 @@
     <span class="f-copy">&copy; 2026 Table First &middot; Accra, Ghana</span>
   </footer>
 
-  <script>
+    <script>
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 50);
@@ -743,6 +805,17 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
   </script>
 
 </body>
