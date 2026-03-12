@@ -218,39 +218,54 @@
       background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6);
     }
 
-    /* ── COMING SOON ── */
-    .coming-card {
-      position: relative; overflow: hidden;
-      border-radius: 3px; background: var(--black); height: 260px;
+    /* ── MELLOW BANNER ── */
+    .mellow-banner {
+      display: grid;
+      grid-template-columns: 38% 1fr;
+      border-radius: 3px;
+      overflow: hidden;
+      height: 280px;
     }
-    .coming-img {
-      width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.2;
+    .mellow-img { overflow: hidden; }
+    .mellow-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
     }
-    .coming-over {
-      position: absolute; inset: 0;
-      display: flex; align-items: center;
-      padding: 0 60px; gap: 60px;
+    .mellow-content {
+      background: #eae6d6;
+      display: flex;
+      align-items: center;
+      padding: 0 52px;
+      gap: 40px;
     }
-    .coming-tag {
-      font-size: 10px; font-weight: 400;
+    .mellow-logo {
+      height: 110px;
+      display: block;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .mellow-divider {
+      width: 1px; height: 70px;
+      background: rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    .mellow-text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mellow-text p {
+      font-size: 12.5px; font-weight: 300;
+      line-height: 1.85; color: #4a4a4a;
+    }
+    .mellow-pill {
+      display: inline-block;
+      padding: 10px 24px;
+      border: 1px solid rgba(0,0,0,0.18);
+      border-radius: 100px;
+      font-size: 10px; font-weight: 500;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-bottom: 12px;
-    }
-    .coming-name {
-      font-size: clamp(44px, 6vw, 86px);
-      font-weight: 200; letter-spacing: -0.03em;
-      color: var(--white); line-height: 0.95; margin-bottom: 16px;
-    }
-    .coming-desc {
-      font-size: 14px; font-weight: 300;
-      line-height: 1.75; color: rgba(255,255,255,0.42); max-width: 440px;
-    }
-    .coming-pill {
-      flex-shrink: 0; padding: 12px 28px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 100px; font-size: 10px; font-weight: 400;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); white-space: nowrap;
+      color: #3a3a3a; width: fit-content;
     }
 
     /* ── SERVICES ── */
@@ -341,8 +356,8 @@
     /* ── CONTACT ── */
     #contact { background: var(--soft); padding: 110px 60px; }
     .contact-inner {
-      display: grid; grid-template-columns: 1fr 1.4fr;
-      gap: 100px; align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
     }
     .contact-title {
       font-size: clamp(38px, 4vw, 64px);
@@ -368,40 +383,6 @@
     }
     .c-val:hover { opacity: 0.5; }
 
-    /* Form */
-    .contact-form { display: flex; flex-direction: column; gap: 20px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    .form-group label {
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.18em; text-transform: uppercase; color: var(--black);
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%; padding: 14px 16px;
-      border: 1px solid var(--rule); border-radius: 3px;
-      background: var(--white); color: var(--black);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px; font-weight: 300;
-      outline: none; transition: border-color 0.25s;
-      -webkit-appearance: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--black); }
-    .form-group textarea { resize: vertical; min-height: 140px; }
-    .form-submit {
-      align-self: flex-start;
-      padding: 14px 40px; background: var(--black);
-      color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      border: none; border-radius: 100px;
-      cursor: pointer; transition: background 0.25s;
-    }
-    .form-submit:hover { background: #333; }
-
     /* ── FOOTER ── */
     footer {
       background: #2c2c2c; padding: 34px 60px;
@@ -422,45 +403,6 @@
     .d1 { transition-delay: 0.1s; }
     .d2 { transition-delay: 0.2s; }
     .d3 { transition-delay: 0.3s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-
-      .hamburger { display: flex; }
-      .nav-links { display: none; }
-
-
-      nav { padding: 16px 24px; }
-      nav.scrolled { padding: 12px 24px; }
-      .nav-links { gap: 20px; }
-      .nav-links a { font-size: 11px; }
-
-      #hero, .split, .split.rev, #markets {
-        grid-template-columns: 1fr;
-      }
-      .hero-img, .split-img, .markets-img { height: 56vw; min-height: 260px; }
-      .hero-content, .split-content, .split.rev .split-content,
-      .markets-content { padding: 56px 24px; }
-
-      #concepts, #services, #focus, #contact { padding: 80px 24px; }
-
-      .c-grid { grid-template-columns: 1fr; gap: 16px; }
-      .c-card-img { height: 260px; }
-
-      .coming-over { padding: 28px 24px; gap: 20px; flex-direction: column; align-items: flex-start; justify-content: center; }
-      .coming-pill { display: none; }
-      .coming-card { height: auto; min-height: 260px; }
-
-      .svcs-hd { grid-template-columns: 1fr; gap: 20px; }
-      .svcs-grid { grid-template-columns: 1fr; gap: 16px; }
-
-      #focus { grid-template-columns: 1fr; gap: 48px; }
-
-      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
-
-      footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
-    }
 
     /* ── HAMBURGER ── */
     .hamburger {
@@ -509,6 +451,50 @@
     }
     .mobile-menu a:hover { opacity: 1; }
 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+
+      nav { padding: 16px 24px; }
+      nav.scrolled { padding: 12px 24px; }
+
+      #hero, .split, .split.rev, #markets {
+        grid-template-columns: 1fr;
+      }
+      .hero-img, .split-img, .markets-img { height: 56vw; min-height: 260px; }
+      .hero-content, .split-content, .split.rev .split-content,
+      .markets-content { padding: 56px 24px; }
+
+      #concepts, #services, #focus, #contact { padding: 80px 24px; }
+
+      .c-grid { grid-template-columns: 1fr; gap: 16px; }
+      .c-card-img { height: 260px; }
+
+      .mellow-banner {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .mellow-img { height: 220px; }
+      .mellow-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 24px;
+        gap: 20px;
+      }
+      .mellow-logo { height: 80px; }
+      .mellow-divider { display: none; }
+      .mellow-text p { font-size: 13px; }
+
+      .svcs-hd { grid-template-columns: 1fr; gap: 20px; }
+      .svcs-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      #focus { grid-template-columns: 1fr; gap: 48px; }
+
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -599,9 +585,9 @@
       <div class="c-card reveal d1">
         <img class="c-card-img" src="https://res.cloudinary.com/df9az7vx8/image/upload/v1773246886/image00001_umzk2m.jpg?auto=compress&cs=tinysrgb&w=800" alt="SOL Lounge" />
         <div class="c-card-body">
-          <div class="c-type"> Bar &amp; Lounge</div>
+          <div class="c-type">Bar &amp; Lounge</div>
           <div class="c-name">SOL - Lounge Bar</div>
-          <div class="c-desc">A Latin- Mediterranean inspired bar and social space. Curated cocktails, small plates, and a relaxed atmosphere.</div>
+          <div class="c-desc">A Latin-Mediterranean inspired bar and social space. Curated cocktails, small plates, and a relaxed atmosphere.</div>
           <div class="c-status"><span class="live-dot"></span> Open Now</div>
         </div>
       </div>
@@ -615,32 +601,21 @@
         </div>
       </div>
     </div>
-    <div class="coming-card reveal" style="height:280px;border-radius:3px;overflow:hidden;display:grid;grid-template-columns:38% 1fr;">
-  
-  <!-- Coffee image left -->
-  <div style="overflow:hidden;">
-    <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Coffee" />
-  </div>
 
-  <!-- Content right -->
-  <div style="background:#eae6d6;display:flex;align-items:center;padding:0 52px;gap:48px;">
-    
-    <!-- Logo -->
-    <div style="flex-shrink:0;">
-      <img src="https://res.cloudinary.com/df9az7vx8/image/upload/v1773248597/Untitled_design_1_uggcw3.png" alt="Mellow" style="height:130px;display:block;object-fit:contain;" />
+    <!-- MELLOW BANNER -->
+    <div class="mellow-banner reveal">
+      <div class="mellow-img">
+        <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Coffee" />
+      </div>
+      <div class="mellow-content">
+        <img src="https://res.cloudinary.com/df9az7vx8/image/upload/v1773248597/Untitled_design_1_uggcw3.png" alt="Mellow" class="mellow-logo" />
+        <div class="mellow-divider"></div>
+        <div class="mellow-text">
+          <p>In a world that's always rushing, we invite you to take a step back, breathe in deeply, and savor life's simple pleasures. Our coffee is crafted not just for taste, but for the moments it helps create—moments of peace, relaxation, and quiet joy.</p>
+          <span class="mellow-pill">Opening Soon · Accra</span>
+        </div>
+      </div>
     </div>
-
-    <!-- Divider -->
-    <div style="width:1px;height:70px;background:rgba(0,0,0,0.1);flex-shrink:0;"></div>
-
-    <!-- Text + pill -->
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <div style="font-size:12.5px;font-weight:300;line-height:1.85;color:#4a4a4a;">In a world that's always rushing, we invite you to take a step back, breathe in deeply, and savor life's simple pleasures. Our coffee is crafted not just for taste, but for the moments it helps create—moments of peace, relaxation, and quiet joy.</div>
-      <div style="display:inline-block;padding:10px 24px;border:1px solid rgba(0,0,0,0.18);border-radius:100px;font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a3a;width:fit-content;">Opening Soon · Accra</div>
-    </div>
-
-  </div>
-</div>
   </section>
 
   <!-- SERVICES -->
@@ -732,16 +707,14 @@
   </section>
 
   <!-- CONTACT -->
-  <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+    <div class="contact-inner">
       <div class="reveal">
         <p class="slabel">Contact</p>
         <h2 class="contact-title">GET IN<br>TOUCH.</h2>
         <p class="contact-sub">For partnerships, consulting inquiries, or collaborations — we'd like to hear from you.</p>
       </div>
-      <div class="reveal d1" style="display:flex;flex-direction:column;justify-content:flex-start;height:100%;padding-top:0px;
-">
+      <div class="reveal d1">
         <div class="c-rows">
           <div class="c-row">
             <div class="c-lbl">Email</div>
@@ -768,14 +741,15 @@
       <text x="27" y="14" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="400" letter-spacing="5" fill="rgba(255,255,255,0.85)">TABLE FIRST</text>
       <text x="27" y="25" font-family="Plus Jakarta Sans, sans-serif" font-size="6.5" font-weight="300" letter-spacing="4.5" fill="rgba(255,255,255,0.5)">HOSPITALITY GROUP</text>
     </svg>
-    <span class="f-copy">&copy; 2026 Table First &middot; </span>
+    <span class="f-copy">&copy; 2026 Table First &middot; Accra, Ghana</span>
   </footer>
 
-    <script>
+  <script>
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 50);
     });
+
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
